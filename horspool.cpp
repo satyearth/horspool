@@ -27,24 +27,19 @@ int search_pattern_dna(const string& text, const string& pattern) {
         }
 
         if (k == m) {
-            return i - m + 1;  // Pattern found at position i - m + 1
+            return i - m + 1;
         }
 
-        // Shift based on the bad character in the text
         char bad_char = text[i];
         if (bad_char_shift.find(bad_char) != bad_char_shift.end()) {
             i += bad_char_shift[bad_char];
         } else {
-            i += m;  // Shift the pattern completely to the right
+            i += m;
         }
     }
 
-    return -1;  // Pattern not found in the text
-}
-
+    return -1;
 int main() {
-    // string dna_sequence = "ATCGATCGTACGATCG";
-    // string pattern_to_find = "TACG";
     string dna_sequence , pattern_to_find ;
     cout<< "Enter the DNA sequence: ";
     cin>>dna_sequence;
